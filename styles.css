@@ -50,16 +50,3 @@ body{font-size:16px;line-height:1.7}
 .credential p,.language-list div,.contact-grid strong{font-size:12px}
 .org-info-button{font-size:12px}
 .org-details{font-size:13px}
-.visual-launchpad{background:linear-gradient(140deg,#fff,#f4edf7 76%);border:1px solid #e3cde9;color:#522663;box-shadow:inset 0 0 0 1px #fff}
-.visual-launchpad .visual-label{color:#754187}
-.visual-launchpad .visual-foot{color:#775783}
-.launchpad-art{flex:1;display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0}
-.sensor-device{width:57px;height:82px;flex:none;border:3px solid #7e4b8e;border-radius:17px;background:linear-gradient(145deg,#fff,#e7d3ee);display:grid;place-items:center;position:relative;box-shadow:0 8px 20px #4c25521a}
-.sensor-device:before{content:"";position:absolute;top:-9px;width:22px;height:8px;border:2px solid #7e4b8e;border-bottom:0;border-radius:7px 7px 0 0}
-.sensor-device span{width:23px;height:23px;border:2px solid #b98bc7;border-radius:50%;position:relative}
-.sensor-device i{position:absolute;width:7px;height:7px;border-radius:50%;background:#a969bf;top:17px;right:13px}
-.launchpad-copy{display:flex;flex-direction:column;gap:10px;min-width:0}
-.launchpad-copy strong{font-family:var(--display);font-size:23px;line-height:1.02;letter-spacing:-.055em;color:#3e2248}
-.launchpad-copy>span{font-size:8px;letter-spacing:.04em;color:#775783}
-.launchpad-art svg{width:28%;height:65px;flex:none;color:#a969bf}
-@media(max-width:640px){.launchpad-copy strong{font-size:22px}.launchpad-art{gap:9px}.launchpad-art svg{width:25%}}
