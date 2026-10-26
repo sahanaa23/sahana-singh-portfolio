@@ -14,6 +14,17 @@
       menuButton.setAttribute("aria-label", "Open navigation");
     }));
   }
+  document.querySelectorAll(".org-info-button").forEach(button => {
+    button.addEventListener("click", () => {
+      const details = document.querySelector("#org-" + button.dataset.org);
+      if (!details) return;
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+      button.setAttribute("aria-expanded", String(!isOpen));
+      details.hidden = isOpen;
+      button.querySelector("span").textContent = isOpen ? "+" : "−";
+      button.firstChild.textContent = isOpen ? "What I do " : "Hide details ";
+    });
+  });
   const year = document.querySelector("#year");
   if (year) year.textContent = new Date().getFullYear();
   const toast = document.querySelector(".toast");
