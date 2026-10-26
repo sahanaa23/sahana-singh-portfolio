@@ -25,19 +25,7 @@
     window.clearTimeout(toastTimeout);
     toastTimeout = window.setTimeout(() => toast.classList.remove("show"), 2200);
   }
-  document.querySelectorAll(".copy-email").forEach(button => {
-    button.addEventListener("click", async () => {
-      const email = button.dataset.email;
-      try {
-        await navigator.clipboard.writeText(email);
-        showToast("Email copied to clipboard");
-      } catch {
-        window.location.href = \`mailto:\${email}\`;
-        showToast("Opening your email app");
-      }
-    });
-  });
-  const revealItems = document.querySelectorAll(".section-heading, .about-grid, .project-card, .timeline-item, .detail-panel, .org-row");
+  const revealItems = document.querySelectorAll(".section-heading, .project-card, .timeline-item, .detail-panel, .resume-card, .contact-grid > a");
   revealItems.forEach(item => item.classList.add("js-reveal"));
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     const observer = new IntersectionObserver(entries => {
