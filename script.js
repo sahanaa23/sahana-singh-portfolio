@@ -22,7 +22,7 @@
       button.setAttribute("aria-expanded", String(!isOpen));
       details.hidden = isOpen;
       button.querySelector("span").textContent = isOpen ? "+" : "−";
-      button.firstChild.textContent = isOpen ? "What I do " : "Hide details ";
+      button.firstChild.textContent = isOpen ? "Role & involvement " : "Hide details ";
     });
   });
   const year = document.querySelector("#year");
