@@ -25,6 +25,111 @@
       button.firstChild.textContent = isOpen ? "Role & involvement " : "Hide details ";
     });
   });
+
+  // Project cards expand in place; other site sections retain their original behavior.
+  const projectSection = document.querySelector("#projects");
+  const projectGrid = projectSection?.querySelector(".project-grid");
+  const projectDetail = document.querySelector("#project-detail");
+  if (projectGrid && projectDetail) {
+    const cards = Array.from(projectGrid.querySelectorAll(".project-card"));
+    let activeCard = null;
+    const notes = [
+      {heading:"My contributions",body:"Contributed to the Friendly Fire trivia experience, including game-statistics question templates, data fixtures, and room-state functionality. The project combines multiple services to turn Valorant match data into personalized quizzes."},
+      {heading:"Research and approach",body:"Exploring predictive models for sports outcomes and prediction markets, with attention to probability estimates, model evaluation, and quantitative analysis."},
+      {heading:"Design and development",body:"Developing a wearable posture-monitoring prototype with a sensor and companion-app concept. The project focuses on calibration, posture detection, and useful feedback."},
+      {heading:"My internship work",body:"During my summer 2024 internship at MNK Infotech, I developed Swift interface screens and functionality for the Asobo app, including input validation, calendar navigation, notifications, and quiz interfaces. I also tested and debugged app behavior."}
+    ];
+    function closeProject() {
+      if (projectDetail.hidden) return;
+      projectDetail.hidden = true;
+      projectGrid.hidden = false;
+      projectDetail.replaceChildren();
+      if (activeCard) activeCard.focus({preventScroll:true});
+      activeCard = null;
+      projectSection.scrollIntoView({block:"start",behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});
+    }
+    cards.forEach((card,index) => {
+      card.setAttribute("role","button");
+      card.setAttribute("tabindex","0");
+      card.setAttribute("aria-label","Explore "+card.querySelector("h3").textContent+" project");
+      const open = () => {
+        activeCard = card;
+        const title = card.querySelector("h3").textContent;
+        const type = card.querySelector(".project-type").textContent;
+        const description = card.querySelector(".project-content > p:not(.project-type)").textContent;
+        const tags = card.querySelector(".tag-list").cloneNode(true);
+        const link = card.querySelector(".project-footer a");
+        projectDetail.replaceChildren();
+        const banner = document.createElement("div");
+        banner.className = "project-detail-banner";
+        const kicker = document.createElement("p");
+        kicker.className = "eyebrow";
+        kicker.textContent = type;
+        const close = document.createElement("button");
+        close.type = "button";
+        close.className = "project-detail-close";
+        close.textContent = "✕ Close";
+        close.setAttribute("aria-label","Close project details");
+        close.addEventListener("click",closeProject);
+        banner.append(kicker,close);
+        const body = document.createElement("div");
+        body.className = "project-detail-body";
+        const heading = document.createElement("h3");
+        heading.id = "project-detail-title";
+        heading.textContent = title;
+        const intro = document.createElement("p");
+        intro.textContent = description;
+        const subheading = document.createElement("h4");
+        subheading.textContent = notes[index].heading;
+        const contribution = document.createElement("p");
+        contribution.textContent = notes[index].body;
+        const tools = document.createElement("h4");
+        tools.textContent = "Tools & technologies";
+        body.append(heading,intro,subheading,contribution,tools,tags);
+        if (index === 3) {
+          const impactHeading = document.createElement("h4");
+          impactHeading.textContent = "From internship design to released app";
+          const impact = document.createElement("div");
+          impact.className = "project-detail-note";
+          const impactText = document.createElement("p");
+          impactText.textContent = "After my internship, I revisited the publicly released Asobo app and recognized interface layouts and design elements from my original work, with some visual changes. This project documents my contributions to that design and development process.";
+          impact.append(impactText);
+          body.append(impactHeading,impact);
+        }
+        if (link) {
+          const footer = document.createElement("div");
+          footer.className = "project-footer";
+          const anchor = link.cloneNode(true);
+          footer.append(anchor);
+          body.append(footer);
+        }
+        const back = document.createElement("button");
+        back.type = "button";
+        back.className = "project-detail-close project-detail-bottom";
+        back.textContent = "← Back to all projects";
+        back.addEventListener("click",closeProject);
+        body.append(back);
+        projectDetail.append(banner,body);
+        projectGrid.hidden = true;
+        projectDetail.hidden = false;
+        projectDetail.scrollIntoView({block:"start",behavior:"instant"});
+        close.focus({preventScroll:true});
+      };
+      card.addEventListener("click",event => {
+        if (event.target.closest("a")) return;
+        open();
+      });
+      card.addEventListener("keydown",event => {
+        if ((event.key === "Enter" || event.key === " ") && !event.target.closest("a")) {
+          event.preventDefault();
+          open();
+        }
+      });
+    });
+    document.addEventListener("keydown",event => {
+      if (event.key === "Escape" && !projectDetail.hidden) closeProject();
+    });
+  }
   const year = document.querySelector("#year");
   if (year) year.textContent = new Date().getFullYear();
   const toast = document.querySelector(".toast");
