@@ -192,3 +192,15 @@ body{background:var(--bg);color:var(--text)}
 #organizations .org-card:nth-child(3) .org-card-link:hover .org-visual{background:#ECC5C6}
 #contact .contact-grid>a:nth-child(4){background:#F2DADC;border-color:#E5BFC2}
 #contact .contact-grid>a:nth-child(4)>span:first-child{color:#86616A}
+
+
+/* Unified blush hero buttons and white contact cards */
+#home .button-outline,
+#home .button-outline:hover{background:#ECC5C6;border-color:#ECC5C6;color:#302F2A}
+#home .button-outline:hover{background:#E5B4B7;border-color:#E5B4B7}
+#contact .contact-grid>a,
+#contact .contact-grid>a:nth-child(1),
+#contact .contact-grid>a:nth-child(2),
+#contact .contact-grid>a:nth-child(3),
+#contact .contact-grid>a:nth-child(4){background:#FFFBF9;border-color:var(--line)}
+#contact .contact-grid>a:hover{border-color:#8A9DB1}
