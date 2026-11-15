@@ -50,3 +50,80 @@ body{font-size:16px;line-height:1.7}
 .credential p,.language-list div,.contact-grid strong{font-size:12px}
 .org-info-button{font-size:12px}
 .org-details{font-size:13px}
+
+
+/* Editorial pastel redesign — November 2026 */
+:root{
+  --bg:#F5E9E7;--panel:#FFFBF9;--panel-2:#F0E4E0;
+  --text:#302F2A;--muted:#625F58;--line:#D6CBC6;
+  --accent:#837D68;--accent-strong:#68634F;
+  --display:"Cormorant Garamond",Georgia,serif;
+  --body:"DM Sans",Arial,sans-serif;
+  --blue:#8A9DB1;--blush:#ECC5C6;--stone:#C1C0C2;
+}
+body{background:var(--bg);color:var(--text)}
+.topbar{border-color:var(--line)}
+.wordmark{font-size:28px;font-weight:600;letter-spacing:-.045em}
+.wordmark span{color:var(--accent)}
+.nav-links{font-size:13px;color:var(--text);gap:23px}
+.nav-links a:hover,.hero-contact a:hover,.footer a:last-child:hover{color:var(--accent-strong)}
+.hero{min-height:600px;gap:65px}
+.hero h1{font-size:clamp(65px,8vw,110px);font-weight:600;letter-spacing:-.055em;line-height:.92}
+.section-heading h2,.resume-card h2{font-size:clamp(48px,5.5vw,70px);font-weight:600;letter-spacing:-.045em}
+.eyebrow{color:var(--accent-strong);font-weight:600;letter-spacing:.14em}
+.hero-intro{color:var(--muted);font-size:17px;line-height:1.8}
+.hero-contact,.hero-meta,.timeline-date,.panel-bottom,.footer{color:var(--muted)}
+.hero-contact span,.eyebrow span,.organization span,.hero-meta span{color:var(--accent)}
+.button{font-size:13px;border-radius:8px;padding:12px 19px}
+.button-primary{background:var(--blush);color:var(--text);border-color:var(--blush)}
+.button-primary:hover{background:#E5B4B7}
+.button-outline{color:var(--text);border-color:#A8A296}
+.button-outline:hover{border-color:var(--accent)}
+.headshot-frame{border-radius:180px 180px 12px 12px;background:#EADDD7;border:1px solid #D5C6BD;box-shadow:18px 18px 0 var(--blush),0 18px 40px #665B4D1C}
+.headshot-placeholder{color:var(--accent-strong)}
+.headshot-placeholder>span{border-color:var(--accent)}
+.section-block{padding-top:95px}
+.project-grid{gap:20px}
+.project-card,.detail-panel,.resume-card,.contact-grid>a{background:var(--panel);border-color:var(--line);border-radius:15px}
+.project-card:hover,.contact-grid>a:hover{border-color:var(--blue)}
+.project-topline{padding-top:20px}
+.project-number,.timeline-date,.panel-bottom{color:var(--muted)}
+.project-state{color:var(--accent-strong)}
+.project-state i,.timeline-marker{background:var(--blue)}
+.project-visual{border-radius:10px}
+.visual-game,.visual-quant{background:linear-gradient(135deg,#F5E9E7,#E5E8EB);border-color:#D6CBC6;color:var(--accent-strong)}
+.visual-label,.visual-foot{color:#626B70}
+.project-art-title>span{background:var(--blue);color:#fff;border-radius:12px;font-size:29px;font-weight:600}
+.project-art-title strong,.quant-art strong{color:var(--text);font-weight:600;letter-spacing:-.035em}
+.quant-art>span{color:var(--blush)}
+.visual-quant{color:var(--blue)}
+.visual-bars i{border-color:#8299AF;background:#BCCBD7}
+.visual-bars i:nth-child(6){background:var(--blue)}
+.project-content h3,.timeline-body h3,.detail-panel h3{font-weight:600;letter-spacing:-.025em}
+.project-content h3{font-size:30px}
+.timeline-body h3{font-size:25px}
+.detail-panel h3{font-size:23px}
+.project-content>p:not(.project-type),.timeline-body ul,.panel-copy,.org-details,.resume-card>div>p:last-child{color:var(--muted);font-size:14px}
+.project-type,.panel-kicker,.organization,.contact-grid>a>span:first-child{color:var(--accent-strong)}
+.tag-list span,.inline-tags span,.skill-list span{background:#F4F0EC;border-color:#DDD6D0;color:#55534D;border-radius:20px}
+.project-footer,.org-more{color:var(--accent-strong);border-color:var(--line)}
+.org-visual{background:#F5E9E7;border-color:var(--line)}
+.org-card-link:hover .org-visual{background:#F0E5E3}
+.org-index{color:var(--muted)}
+.logo-fallback{color:var(--accent-strong)}
+.logo-acpc .logo-fallback{color:#657F95}
+.org-info-button{color:var(--text)}
+.org-info-button span,.org-details a{color:var(--accent-strong)}
+.experience-repo{color:var(--muted)}
+.contact-grid>a>span:last-child{color:var(--accent-strong)}
+.toast{background:var(--text);color:var(--panel)}
+::selection{background:var(--blush);color:var(--text)}
+@media(max-width:640px){
+  .nav-links{background:var(--bg);border-color:var(--line)}
+  .hero h1{font-size:clamp(58px,13vw,82px)}
+  .section-heading h2,.resume-card h2{font-size:50px}
+  .hero{padding-top:65px}
+  .hero-intro{font-size:15px}
+  .project-content h3{font-size:27px}
+  .hero-art{width:min(100%,270px)}
+}
