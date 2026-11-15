@@ -170,10 +170,6 @@ body{background:var(--bg);color:var(--text)}
 #home .eyebrow{color:#526B80}
 #home .button-outline{background:#8A9DB1;border-color:#8A9DB1;color:#202D37}
 #home .button-outline:hover{background:#A9B9C9;border-color:#A9B9C9}
-#experience .timeline-item:nth-child(odd) .timeline-body{background:#E2E8ED;border:1px solid #BAC9D4;border-radius:14px;padding:22px 25px}
-#experience .timeline-item:nth-child(even) .timeline-body{background:#E8E6DC;border:1px solid #C9C5B7;border-radius:14px;padding:22px 25px}
-#experience .timeline-item:nth-child(odd) .organization{color:#526B80}
-#experience .timeline-item:nth-child(even) .organization{color:#68634F}
 #organizations .org-card:nth-child(1) .org-visual{background:#DCE5EC;border-color:#B7C7D3}
 #organizations .org-card:nth-child(2) .org-visual{background:#E1E1D4;border-color:#C2C1AC}
 #organizations .org-card:nth-child(3) .org-visual{background:#DCE5EC;border-color:#B7C7D3}
@@ -185,3 +181,14 @@ body{background:var(--bg);color:var(--text)}
 #contact .contact-grid>a:nth-child(1)>span:first-child,#contact .contact-grid>a:nth-child(4)>span:first-child{color:#526B80}
 #contact .contact-grid>a:nth-child(2)>span:first-child,#contact .contact-grid>a:nth-child(3)>span:first-child{color:#68634F}
 @media(max-width:640px){#home{border-radius:16px}#experience .timeline-body{padding:18px!important}}
+
+/* Balanced editorial palette: white experience cards, restrained blush accents */
+#experience .timeline-body{background:#FFFBF9;border:1px solid var(--line);border-radius:14px;padding:22px 25px}
+#experience .timeline-item .organization{color:var(--accent-strong)}
+#experience .timeline-marker{background:#ECC5C6}
+#home .button-primary{background:#ECC5C6;border-color:#ECC5C6}
+#home .button-primary:hover{background:#E5B4B7;border-color:#E5B4B7}
+#organizations .org-card:nth-child(3) .org-visual{background:#F2DADC;border-color:#E5BFC2}
+#organizations .org-card:nth-child(3) .org-card-link:hover .org-visual{background:#ECC5C6}
+#contact .contact-grid>a:nth-child(4){background:#F2DADC;border-color:#E5BFC2}
+#contact .contact-grid>a:nth-child(4)>span:first-child{color:#86616A}
