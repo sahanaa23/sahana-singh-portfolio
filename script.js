@@ -97,6 +97,63 @@
           impactText.textContent = "After my internship, I revisited the publicly released Asobo app and recognized interface layouts and design elements from my original work, with some visual changes. This project documents my contributions to that design and development process.";
           impact.append(impactText);
           body.append(impactHeading,impact);
+          // Screenshot pairs are loaded automatically when these six files are uploaded.
+          const comparisons = [
+            {title:"Home Screen",slug:"home"},
+            {title:"Leaderboard",slug:"leaderboard"},
+            {title:"Settings",slug:"settings"}
+          ];
+          const comparisonsHeading = document.createElement("h4");
+          comparisonsHeading.textContent = "Screen comparisons";
+          const comparisonsIntro = document.createElement("p");
+          comparisonsIntro.textContent = "A look at three screens from my internship version alongside the released app.";
+          body.append(comparisonsHeading,comparisonsIntro);
+          comparisons.forEach((screen,screenIndex) => {
+            const section = document.createElement("section");
+            section.className = "asobo-comparison";
+            const screenTitle = document.createElement("h5");
+            screenTitle.textContent = String(screenIndex + 1).padStart(2,"0") + " / " + screen.title;
+            const pair = document.createElement("div");
+            pair.className = "asobo-image-pair";
+            [
+              {version:"original",label:"My Internship Version"},
+              {version:"released",label:"Released App Version"}
+            ].forEach(item => {
+              const figure = document.createElement("figure");
+              figure.className = "asobo-screen";
+              const frame = document.createElement("div");
+              frame.className = "asobo-screen-frame";
+              const filename = "asobo-" + screen.slug + "-" + item.version + ".png";
+              const placeholder = document.createElement("div");
+              placeholder.className = "asobo-screen-placeholder";
+              const symbol = document.createElement("span");
+              symbol.setAttribute("aria-hidden","true");
+              symbol.textContent = "▣";
+              const hint = document.createElement("span");
+              hint.textContent = "Screenshot";
+              placeholder.append(symbol,hint);
+              const img = document.createElement("img");
+              img.alt = screen.title + " — " + item.label;
+              img.loading = "lazy";
+              img.hidden = true;
+              img.addEventListener("load",() => {
+                img.hidden = false;
+                placeholder.hidden = true;
+              });
+              img.addEventListener("error",() => {
+                img.hidden = true;
+                placeholder.hidden = false;
+              });
+              img.src = filename;
+              frame.append(placeholder,img);
+              const caption = document.createElement("figcaption");
+              caption.textContent = item.label;
+              figure.append(frame,caption);
+              pair.append(figure);
+            });
+            section.append(screenTitle,pair);
+            body.append(section);
+          });
         }
         if (link) {
           const footer = document.createElement("div");
