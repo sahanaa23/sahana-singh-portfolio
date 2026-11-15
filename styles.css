@@ -157,3 +157,9 @@ body{background:var(--bg);color:var(--text)}
 .resume-card{background:#837D68;border-color:#837D68;color:#FFF9F3}
 .resume-card .eyebrow,.resume-card>div>p:last-child{color:#FFF9F3}
 .resume-card .button-primary{background:#ECC5C6;border-color:#ECC5C6;color:#302F2A}
+
+/* Single-column hero without portrait */
+.hero{grid-template-columns:minmax(0,1fr);gap:0;min-height:auto;max-width:1100px}
+.hero-copy{max-width:900px}
+.hero-intro{max-width:720px}
+@media(max-width:640px){.hero{grid-template-columns:minmax(0,1fr)}}
