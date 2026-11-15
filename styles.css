@@ -235,3 +235,18 @@ body{background:var(--bg);color:var(--text)}
 @keyframes project-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:680px){#projects .project-grid{grid-template-columns:1fr}.project-detail-body{max-height:75vh}.project-detail-banner{min-height:130px}.project-detail-body h3{font-size:48px}}
 @media(prefers-reduced-motion:reduce){.project-detail{animation:none}#projects .project-card{transition:none}}
+
+/* Focused, smaller project modal with a blurred and locked background */
+body.project-modal-open{overflow:hidden}
+#projects .project-backdrop[hidden]{display:none!important}
+#projects .project-backdrop{position:fixed;inset:0;z-index:1000;background:rgba(36,35,34,.44);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);animation:project-fade .2s ease}
+#projects .project-detail{position:fixed;z-index:1001;top:50%;left:50%;transform:translate(-50%,-50%);width:min(760px,calc(100vw - 40px));max-height:min(82dvh,820px);display:flex;flex-direction:column;box-shadow:0 26px 90px rgba(30,28,25,.28);animation:project-modal-in .24s ease}
+#projects .project-detail[hidden]{display:none!important}
+#projects .project-detail-banner{min-height:105px;padding:22px 28px;flex-shrink:0;align-items:center}
+#projects .project-detail-body{max-height:none;min-height:0;overflow-y:auto;padding:clamp(24px,4vw,42px);scrollbar-gutter:stable}
+#projects .project-detail-body h3{font-size:clamp(40px,5vw,60px)}
+#projects .project-detail-body h4{font-size:27px;margin-top:24px}
+@keyframes project-fade{from{opacity:0}to{opacity:1}}
+@keyframes project-modal-in{from{opacity:0;transform:translate(-50%,-47%) scale(.98)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@media(max-width:680px){#projects .project-detail{width:calc(100vw - 24px);max-height:88dvh;border-radius:15px}#projects .project-detail-banner{min-height:85px;padding:15px 18px}#projects .project-detail-body{padding:22px}#projects .project-detail-body h3{font-size:42px}}
+@media(prefers-reduced-motion:reduce){#projects .project-backdrop,#projects .project-detail{animation:none}}
