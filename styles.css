@@ -154,10 +154,6 @@ body{background:var(--bg);color:var(--text)}
 #projects .project-card:nth-child(2) .quant-art svg{color:#F5E9E7}
 #projects .visual-bars i{border-color:#E6EDF1;background:#DCE6EC}
 #projects .visual-bars i:nth-child(6){background:#F5E9E7}
-#skills .skills-grid .detail-panel:nth-child(2){background:#E0E6EB;border-color:#B9C7D2}
-#skills .skills-grid .detail-panel:nth-child(3){background:#E6E4DA;border-color:#C9C4B4}
-#skills .skills-grid .detail-panel:nth-child(2) .panel-kicker{color:#465F74}
-#skills .skills-grid .detail-panel:nth-child(3) .panel-kicker{color:#68634F}
 .resume-card{background:#837D68;border-color:#837D68;color:#FFF9F3}
 .resume-card .eyebrow,.resume-card>div>p:last-child{color:#FFF9F3}
 .resume-card .button-primary{background:#ECC5C6;border-color:#ECC5C6;color:#302F2A}
