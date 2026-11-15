@@ -250,3 +250,16 @@ body.project-modal-open{overflow:hidden}
 @keyframes project-modal-in{from{opacity:0;transform:translate(-50%,-47%) scale(.98)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
 @media(max-width:680px){#projects .project-detail{width:calc(100vw - 24px);max-height:88dvh;border-radius:15px}#projects .project-detail-banner{min-height:85px;padding:15px 18px}#projects .project-detail-body{padding:22px}#projects .project-detail-body h3{font-size:42px}}
 @media(prefers-reduced-motion:reduce){#projects .project-backdrop,#projects .project-detail{animation:none}}
+
+/* Asobo screen comparisons; screenshots appear automatically when files exist */
+.asobo-comparison{margin:25px 0 32px}
+.asobo-comparison h5{font-family:var(--body);font-size:14px;font-weight:600;letter-spacing:.03em;margin:0 0 14px;color:#302F2A}
+.asobo-image-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.asobo-screen{margin:0;min-width:0}
+.asobo-screen-frame{aspect-ratio:9/16;background:#F5E9E7;border:1px solid #D6CBC6;border-radius:13px;overflow:hidden;display:grid;place-items:center;position:relative}
+.asobo-screen-frame img{width:100%;height:100%;object-fit:contain;display:block}
+.asobo-screen-frame img[hidden],.asobo-screen-placeholder[hidden]{display:none!important}
+.asobo-screen-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#837D68;font-size:12px;text-align:center}
+.asobo-screen-placeholder span:first-child{font-size:42px;font-weight:400;line-height:1}
+.asobo-screen figcaption{font-size:12px;color:#625F58;text-align:center;margin-top:10px}
+@media(max-width:480px){.asobo-image-pair{gap:10px}.asobo-screen-frame{border-radius:9px}.asobo-screen figcaption{font-size:11px}}
