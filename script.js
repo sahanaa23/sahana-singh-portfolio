@@ -30,7 +30,8 @@
   const projectSection = document.querySelector("#projects");
   const projectGrid = projectSection?.querySelector(".project-grid");
   const projectDetail = document.querySelector("#project-detail");
-  if (projectGrid && projectDetail) {
+  const projectBackdrop = document.querySelector("#project-backdrop");
+  if (projectGrid && projectDetail && projectBackdrop) {
     const cards = Array.from(projectGrid.querySelectorAll(".project-card"));
     let activeCard = null;
     const notes = [
@@ -42,11 +43,12 @@
     function closeProject() {
       if (projectDetail.hidden) return;
       projectDetail.hidden = true;
-      projectGrid.hidden = false;
+      projectBackdrop.hidden = true;
+      document.body.classList.remove("project-modal-open");
       projectDetail.replaceChildren();
       if (activeCard) activeCard.focus({preventScroll:true});
       activeCard = null;
-      projectSection.scrollIntoView({block:"start",behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"instant":"smooth"});
+
     }
     cards.forEach((card,index) => {
       card.setAttribute("role","button");
@@ -110,9 +112,9 @@
         back.addEventListener("click",closeProject);
         body.append(back);
         projectDetail.append(banner,body);
-        projectGrid.hidden = true;
+        projectBackdrop.hidden = false;
         projectDetail.hidden = false;
-        projectDetail.scrollIntoView({block:"start",behavior:"instant"});
+        document.body.classList.add("project-modal-open");
         close.focus({preventScroll:true});
       };
       card.addEventListener("click",event => {
@@ -126,8 +128,16 @@
         }
       });
     });
+    projectBackdrop.addEventListener("click",closeProject);
     document.addEventListener("keydown",event => {
-      if (event.key === "Escape" && !projectDetail.hidden) closeProject();
+      if (projectDetail.hidden) return;
+      if (event.key === "Escape") { closeProject(); return; }
+      if (event.key !== "Tab") return;
+      const focusable = Array.from(projectDetail.querySelectorAll("button, a[href], [tabindex]:not([tabindex=\"-1\"])")).filter(el => !el.disabled);
+      if (!focusable.length) return;
+      const first = focusable[0], last = focusable[focusable.length-1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     });
   }
   const year = document.querySelector("#year");
